@@ -9,7 +9,7 @@
 
 }
 
-th, #instr {
+#instr {
 	font-size: 19px;
 }
 
@@ -27,6 +27,7 @@ th, #instr {
 
 h1 {
 	font-family: 'Games', sans-serif;
+	font-size: 32px;
 }
 
 .container {
