@@ -13,6 +13,8 @@
 	font-size: 19px;
 }
 
+
+
 .th-one {
 	color: red;
 }
@@ -51,6 +53,11 @@ body {
 
 h1 {
 	font-size: 60px;
+}
+
+.choices-dis {
+	display: inline-flex;
+	justify-content: space-evenly;
 }
 
 }

@@ -22,11 +22,11 @@
 	<div class="container mt-5 pb-5">
 		<div class="container-fluid text-center">
 			<div class="row">
-				<h1 class="py-4">Rock, Paper, Scissor Game</h1>
+				<h1 class="pt-4 pb-2">Rock, Paper, Scissor Game</h1>
 
-				<p id="instr" class="fst-italic pb-4">It's you vs. the mighty computer. The first one to score three points wins the game. If it's a tie, no points are earned for either team. Are you ready?</p>
+				<p id="instr" class="fst-italic pb-2">It's you vs. the mighty computer. The first one to score three points wins the game. If it's a tie, no points are earned for either team. Are you ready?</p>
 
-				<h4 class="pb-4 fst-italic fw-bold">Let the battle begin!</h4>
+				<h4 class="pb-2 fst-italic fw-bold">Let the battle begin!</h4>
 
 				<div class="d-flex justify-content-center mb-3 mt-3">
 
@@ -47,16 +47,21 @@
 					</table>
 				</div>
 
-				<p class="fw-bold pb-4 fs-4" id="demo"></p>
+				<div class=" choices-dis fw-bold text-center"> 
+					<p id="displayCoChoice" class=""></p>
+					<p id="displayYoChoice" class=""></p>
+				</div>
+				
+				<p class="fw-bold pb-2 fs-4" id="demo"></p>
 
 				<div class="d-flex justify-content-center mb-3">
 					<div class="btn-toolbar text-center " role="toolbar" aria-label="Basic example">
-						<button type="button" value="rock" onclick="determineWinner(value);" class="btn btn-primary btn-lg  fw-bold">Rock</button>
+						<button type="button" value="rock" title="Rock" onclick="determineWinner(title);" class="btn btn-primary btn-lg  fw-bold r-p-s">Rock</button>
 					  	
-					  	<button type="button" value="paper" onclick="determineWinner(value)" class="btn btn-primary btn-lg mx-3 fw-bold">Paper</button>
+					  	<button type="button" value="paper" title="Paper" onclick="determineWinner(title)" class="btn btn-primary btn-lg mx-3 fw-bold r-p-s">Paper</button>
 					  	
 					  	<button type="button" 
-					  	value="scissor" onclick="determineWinner(value)" class="btn btn-primary btn-lg  fw-bold">Scissor</button>
+					  	value="scissor" title="Scissor"  onclick="determineWinner(title)" class="btn btn-primary btn-lg  fw-bold r-p-s">Scissor</button>
 					</div>	
 				</div>			
 			</div>
