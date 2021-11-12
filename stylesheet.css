@@ -1,0 +1,56 @@
+.table {
+	width: 70%;
+	color: white;
+}
+
+.btn-primary {
+	width: 98px;
+	height: 60px;
+
+}
+
+th, #instr {
+	font-size: 19px;
+}
+
+.th-one {
+	color: red;
+}
+
+.th-two {
+	color: lightblue;
+}
+
+#demo {
+	color: darkgreen;
+}
+
+h1 {
+	font-family: 'Games', sans-serif;
+}
+
+.container {
+	background-color: aliceblue;
+
+}
+
+body {
+	background-color: lightgreen;
+}
+
+@media only screen and (min-width: 768px) {
+
+.btn-primary {
+	
+	width: 150px;
+	height: 75px;
+	margin-right: 10px;
+	margin-left: 10px;
+}
+
+h1 {
+	font-size: 60px;
+}
+
+}
+
