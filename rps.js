@@ -13,6 +13,9 @@ Step 5: Create a variable called messageDisp and store in it the selection of th
 which some messages will be displayed.
 Step 6: Create one variable called displayComChoice and another called displayYourChoice and store in them the
 selection of the "p" elements where the computer's and the user's choices will be displayed.
+Step 6: Define a variable called restBtn that will select a button element from our HTML file. This 
+button will have a display property of "none", because it will not be displayed until the resetButton 
+function that will be created later on gets executed.
 Step 6: Create a function called determineWinner that takes in a title as a parameter. This title
 will pass-in the titles of the button elements in our HTML file. There are three button elements, one
 for each choice: rock, paper or scissor. We made this connection by adding an onclick event to each button element that
@@ -33,17 +36,15 @@ to 3, which is the maximum score. If the user's score gets equal to three before
 will display a message indicating that the user won, and call a function (we will define later) that displays a button that 
 when clicked will refresh the page to start a new game and will disable the "rock", "paper" and "scissor" 
 buttons. We do the same if the computer won but with a message giving the option to try again.
-Step 11: Create a button element and store it in a variable called resetBtn. This button will not be displayed
-until the resetButton gets executed.
-Step 12: Create a function called resetGame that will generate a new random selection from the array, will
-reset the variables containing the scores to their initial value of 0, will clear out the displayed messages using an empty
-string, will enable the use of the "Rock" "Paper" "Scissor" buttons (which will be disabled in the next function), and will hide the
-button element that will be created in the resetButton function.
-Step 13: Create a function called resetButton that will create and display on the page a button element whenever executed. This button,
+Step 12: Create a function called resetGame that will reset the game by generating a new random selection from the array,
+reseting the variables containing the scores to their initial value of 0, clearing out the displayed messages using an empty
+string, enabling the use of the "Rock" "Paper" "Scissor" buttons (which will be disabled in the next function), and hiding the
+"Play Again" button from our HTML file.
+Step 13: Create a function called resetButton that will display the "Play Again" button whenever executed. This button,
 when clicked, will execute the resetGame function that we added to it using the addEventListener method. 
-It will also disable the "rock", "paper", "scissor" buttons on the page so that the user is given the option to either play a new game 
-with a new score or not play at all. To do this we first select the buttons by their class name, run a for loop through them, and apply 
-the disabled property to each one of the buttons.
+This function will also disable the "rock", "paper", "scissor" buttons on the page so that the user is given the option to 
+either play a new game with a new score or not play at all. To do this firstly select the buttons by their class name, run a 
+for loop through them, and apply the disabled property to each one of the buttons.
 */
 
 
@@ -55,28 +56,30 @@ const cScoreId = document.getElementById("cScore");
 const messageDisp = document.getElementById("demo");
 const displayComChoice = document.getElementById("displayCoChoice");
 const displayYourChoice = document.getElementById("displayYoChoice");
+const resetBtn = document.getElementById("resetBtn");
+resetBtn.style.display = "none";
 
 const determineWinner = function(title) {
 	let compChoice = arrayChoices[Math.floor(Math.random() * arrayChoices.length)];
 	displayComChoice.innerHTML = "Computer's Choice:" + " " + compChoice;
 	displayYourChoice.innerHTML = "Your Choice:" + " " + title;
 	
-	if(title == "Rock" && compChoice == "Scissor") {
+	if(title === "Rock" && compChoice === "Scissor") {
 		yourScore++
 		yScoreId.innerHTML = yourScore;
-	} else if(title == "Scissor" && compChoice == "Rock"){
+	} else if(title === "Scissor" && compChoice === "Rock"){
 		compScore++		
 		cScoreId.innerHTML = compScore;
-	} else if(title == "Scissor" && compChoice == "Paper") {
+	} else if(title === "Scissor" && compChoice === "Paper") {
 		yourScore++
 		yScoreId.innerHTML = yourScore;
-	} else if(title == "Paper" && compChoice == "Scissor"){
+	} else if(title === "Paper" && compChoice === "Scissor"){
 		compScore++
 		cScoreId.innerHTML = compScore;
-	} else if(title == "Paper" && compChoice == "Rock") {
+	} else if(title === "Paper" && compChoice === "Rock") {
 		yourScore++
 		yScoreId.innerHTML = yourScore;
-	} else if(title == "Rock" && compChoice == "Paper"){
+	} else if(title === "Rock" && compChoice === "Paper"){
 		compScore++
 		cScoreId.innerHTML = compScore;
 	} else if(compChoice = title) {
@@ -84,22 +87,14 @@ const determineWinner = function(title) {
 		displayYourChoice.innerHTML = "Your Choice:" + " " + title + " " + "(Tie)";
 	}; 
 
-	if(yourScore == 3) {
+	if(yourScore === 3) {
 		messageDisp.innerHTML = "Congratulations! You Win!"
 		resetButton();
-	} else if(compScore == 3) {
+	} else if(compScore === 3) {
 		messageDisp.innerHTML = "Sorry, try again."
 		resetButton();
 	};	
 };
-
-
-let resetBtn = document.createElement("BUTTON");
-resetBtn.className = "btn btn-dark";
-resetBtn.innerHTML	= "Play Again";
-document.querySelector(".container-fluid").appendChild(resetBtn);
-let btnElems = document.getElementsByClassName("btn-lg");
-resetBtn.style.display = "none";
 
 let resetGame = function () {
 	compChoice = arrayChoices[Math.floor(Math.random() * arrayChoices.length)];
