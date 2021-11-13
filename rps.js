@@ -13,17 +13,18 @@ Step 5: Create a variable called messageDisp and store in it the selection of th
 which some messages will be displayed.
 Step 6: Create one variable called displayComChoice and another called displayYourChoice and store in them the
 selection of the "p" elements where the computer's and the user's choices will be displayed.
-Step 6: Define a variable called restBtn that will select a button element from our HTML file. This 
-button will have a display property of "none", because it will not be displayed until the resetButton 
+Step 6: Define a variable called restBtn that will select a button element from our HTML file. Then add to this
+button the display property of "none", because it will not be displayed until the resetButton 
 function that will be created later on gets executed.
-Step 6: Create a function called determineWinner that takes in a title as a parameter. This title
+Step 7: Define a variable called btnElems that selects the rock, paper, scissor button elements from our HTML file.
+Step 8: Create a function called determineWinner that takes in a title as a parameter. This title
 will pass-in the titles of the button elements in our HTML file. There are three button elements, one
 for each choice: rock, paper or scissor. We made this connection by adding an onclick event to each button element that
 calls the determineWinner function, and with their titles as the parameters. This will help us determine the user's choices
-Step 7: Create a variable called compChoice and store in it a generator of random elements 
+Step 9: Create a variable called compChoice and store in it a generator of random elements 
 from the arrayChoices using the Math.random method. 
-Step 8: Display the computer's choice and the user's choice on their respective "p" elements using the innerHTML property.
-Step 9: Using an if and else if statements we will compare the users choice with the computer's
+Step 10: Display the computer's choice and the user's choice on their respective "p" elements using the innerHTML property.
+Step 11: Using an if and else if statements we will compare the users choice with the computer's
 choice and determine which choice is the winning one in each possible scenario. We first check if
 the title passed in from our first button element (user's choice) is equal to "rock", and if the 
 computer's choice (compChoice) is equal to the "Scissor" element from the array. If this conditions
@@ -31,16 +32,16 @@ are met, then the user's score (yourScore) will increase by one and will be disp
 cell of the user's column ("You"). We check each possible scenario the same way, and display the 
 scores for the computer and the user on the table. If both the computer and the user make the same choice, the
 choices are displayed with a message indicating that it's a tie, and neither will earn points.
-Step 10: With another separate if statement, we check if either's score (computer and user) is equal
+Step 12: With another separate if statement, we check if either's score (computer and user) is equal
 to 3, which is the maximum score. If the user's score gets equal to three before the computer's, we
 will display a message indicating that the user won, and call a function (we will define later) that displays a button that 
 when clicked will refresh the page to start a new game and will disable the "rock", "paper" and "scissor" 
 buttons. We do the same if the computer won but with a message giving the option to try again.
-Step 12: Create a function called resetGame that will reset the game by generating a new random selection from the array,
+Step 13: Create a function called resetGame that will reset the game by generating a new random selection from the array,
 reseting the variables containing the scores to their initial value of 0, clearing out the displayed messages using an empty
 string, enabling the use of the "Rock" "Paper" "Scissor" buttons (which will be disabled in the next function), and hiding the
 "Play Again" button from our HTML file.
-Step 13: Create a function called resetButton that will display the "Play Again" button whenever executed. This button,
+Step 14: Create a function called resetButton that will display the "Play Again" button whenever executed. This button,
 when clicked, will execute the resetGame function that we added to it using the addEventListener method. 
 This function will also disable the "rock", "paper", "scissor" buttons on the page so that the user is given the option to 
 either play a new game with a new score or not play at all. To do this firstly select the buttons by their class name, run a 
@@ -58,6 +59,7 @@ const displayComChoice = document.getElementById("displayCoChoice");
 const displayYourChoice = document.getElementById("displayYoChoice");
 const resetBtn = document.getElementById("resetBtn");
 resetBtn.style.display = "none";
+let btnElems = document.getElementsByClassName("btn-lg");
 
 const determineWinner = function(title) {
 	let compChoice = arrayChoices[Math.floor(Math.random() * arrayChoices.length)];
