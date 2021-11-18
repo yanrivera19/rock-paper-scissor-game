@@ -41,7 +41,7 @@ Step 13: Create a function called resetGame that will reset the game by generati
 reseting the variables containing the scores to their initial value of 0, clearing out the displayed messages using an empty
 string, enabling the use of the "Rock" "Paper" "Scissor" buttons (which will be disabled in the next function), and hiding the
 "Play Again" button from our HTML file.
-Step 14: Create a function called resetButton that will display the "Play Again" button whenever executed. This button,
+Step 14: Create a function expression called resetButton that will display the "Play Again" button whenever executed. This button,
 when clicked, will execute the resetGame function that we added to it using the addEventListener method. 
 This function will also disable the "rock", "paper", "scissor" buttons on the page so that the user is given the option to 
 either play a new game with a new score or not play at all. To do this firstly select the buttons by their class name, run a 
@@ -67,22 +67,22 @@ const determineWinner = function(title) {
 	displayYourChoice.innerHTML = "Your Choice:" + " " + title;
 	
 	if(title === "Rock" && compChoice === "Scissor") {
-		yourScore++
+		yourScore++;
 		yScoreId.innerHTML = yourScore;
 	} else if(title === "Scissor" && compChoice === "Rock"){
-		compScore++		
+		compScore++;		
 		cScoreId.innerHTML = compScore;
 	} else if(title === "Scissor" && compChoice === "Paper") {
-		yourScore++
+		yourScore++;
 		yScoreId.innerHTML = yourScore;
 	} else if(title === "Paper" && compChoice === "Scissor"){
-		compScore++
+		compScore++;
 		cScoreId.innerHTML = compScore;
 	} else if(title === "Paper" && compChoice === "Rock") {
-		yourScore++
+		yourScore++;
 		yScoreId.innerHTML = yourScore;
 	} else if(title === "Rock" && compChoice === "Paper"){
-		compScore++
+		compScore++;
 		cScoreId.innerHTML = compScore;
 	} else if(compChoice = title) {
 		displayComChoice.innerHTML = "Computer's Choice:" + " " + compChoice + " " +"(Tie)";
@@ -90,10 +90,10 @@ const determineWinner = function(title) {
 	}; 
 
 	if(yourScore === 3) {
-		messageDisp.innerHTML = "Congratulations! You Win!"
+		messageDisp.innerHTML = "Congratulations! You Win!";
 		resetButton();
 	} else if(compScore === 3) {
-		messageDisp.innerHTML = "Sorry, try again."
+		messageDisp.innerHTML = "Sorry, try again.";
 		resetButton();
 	};	
 };
@@ -110,13 +110,12 @@ let resetGame = function () {
 	resetBtn.style.display = "none";	
 	for(let i = 0; i < btnElems.length; i++) {
     	btnElems[i].disabled = false;
-	}
+	};
 };
 
 function resetButton() {
 	resetBtn.style.display = "inline-block";	
 	for(let i = 0; i < btnElems.length; i++) {
     	btnElems[i].disabled = true;
-	}
-  	resetBtn.addEventListener("click", resetGame);	
+	};	
 };
